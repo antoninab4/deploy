@@ -8,8 +8,6 @@ show() {
 # Вывод текста построчно
 show " Wings Node Team  "
 
-
-
 # Step 0: Установка nvm и Node.js, если они еще не установлены
 if ! command -v npm &> /dev/null; then
     show "Устанавливаем nvm..."
@@ -54,14 +52,14 @@ echo "Public Key Hash: $PUBKEY_HASH"
 show "Создание папки для проекта ERC-20..."
 mkdir TestToken && cd TestToken
 
-# Step 4: Инициализация npm и установка зависимостей
+# Step 4: Инициализация npm проекта и установка зависимостей
 show "Инициализация npm проекта и установка зависимостей..."
 npm init -y
 npm install --save-dev hardhat @nomiclabs/hardhat-ethers ethers @openzeppelin/contracts
 
-# Step 5: Инициализация Hardhat проекта
+# Step 5: Инициализация Hardhat проекта с флагом --force
 show "Инициализация Hardhat проекта..."
-npx hardhat init
+npx hardhat init --force
 
 # Step 6: Создание пустого файла hardhat.config.js
 show "Создание файла hardhat.config.js..."
